@@ -1,7 +1,9 @@
-@page "{id:int?}"
+@page
 @model ScoreScorer.Pages.Scores.DeleteModel
 
-@{ ViewData["Title"] = "Delete"; }
+@{
+    ViewData["Title"] = "Delete";
+}
 
 <h1>Delete</h1>
 
@@ -35,7 +37,7 @@
             @Html.DisplayFor(model => model.ScoreRate.DislikeDescription)
         </dd>
     </dl>
-
+    
     <form method="post">
         <input type="hidden" asp-for="ScoreRate.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

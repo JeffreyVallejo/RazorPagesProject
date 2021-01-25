@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Pages\Scores\" />
+    <Folder Include="Pages\SoundTracks\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />

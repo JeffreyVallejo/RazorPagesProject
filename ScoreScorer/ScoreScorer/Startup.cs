@@ -27,17 +27,9 @@ namespace ScoreScorer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            if (Environment.IsDevelopment())
-            {
-                services.AddDbContext<RazorPagesScoreRateContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("RazorPagesScoreRateContext")));
-            }
-            else
-            {
-                services.AddDbContext<RazorPagesScoreRateContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("ScoreRateContext")));
-            }
+            services.AddDbContext<RazorPagesScoreRateContext>(options =>
+            options.UseSqlServer(
+                Configuration.GetConnectionString("RazorPagesScoreRateContext")));
 
             services.AddRazorPages();
         }
