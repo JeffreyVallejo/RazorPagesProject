@@ -20,18 +20,22 @@ namespace ScoreScorer.Pages.Scores
         }
 
         public IList<ScoreRate> Scores { get; set; }
+        
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
         public async Task OnGetAsync()
         {
-            var scores = from m in _context.ScoreRate
-                         select m;
+            var scores =
+                from m in _context.ScoreRate
+                select m;
+            
             if (!string.IsNullOrEmpty(SearchString))
             {
                 scores = scores.Where(s => s.Name.Contains(SearchString));
             }
 
+            
             Scores = await scores.ToListAsync();
         }
     }

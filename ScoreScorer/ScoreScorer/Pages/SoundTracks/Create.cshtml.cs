@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesScoreRate.Data;
 using ScoreScorer.Models;
 
-namespace ScoreScorer.Pages.Scores
+namespace ScoreScorer.Pages.SoundTracks
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace ScoreScorer.Pages.Scores
         }
 
         [BindProperty]
-        public ScoreRate ScoreRate { get; set; }
+        public SoundTrack SoundTrack { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -36,13 +36,7 @@ namespace ScoreScorer.Pages.Scores
                 return Page();
             }
 
-            var scores =
-                from m in _context.ScoreRate
-                select m;
-            // Gets the last ID in the DB and increments by one.
-            ScoreRate.ID = (scores.OrderByDescending(s => s.ID).FirstOrDefault().ID) + 1;
-
-            _context.ScoreRate.Add(ScoreRate);
+            _context.SoundTrack.Add(SoundTrack);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
