@@ -18,6 +18,7 @@ namespace RazorPagesScoreRate.Data
 
         public DbSet<ScoreScorer.Models.SoundTrack> SoundTrack { get; set; }
 
-        public DbSet<ScoreScorer.Models.User> User { get; set; }
+        public DbSet<ScoreScorer.Models.Profile> Profile { get; set; }
+
     }
 }
