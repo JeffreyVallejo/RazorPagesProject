@@ -19,11 +19,26 @@ namespace ScoreScorer.Pages.Profiles
             _context = context;
         }
 
-        public IList<Profile> Profile { get;set; }
+        public IList<Profile> Profiles { get;set; }
+        public IList<RatedSoundtrackToProfile> RatedSoundtracks { get; set; }
 
         public async Task OnGetAsync()
         {
-            Profile = await _context.Profile.ToListAsync();
+            Profiles = await _context.Profile.ToListAsync();
+
+            var query =
+                from m in _context.RatedSoundtrackToProfile
+                select m;
+
+            query = query.Where(q => q.ProfileId.Equals(Profiles[0].ID));
+
+            RatedSoundtracks = await _context.RatedSoundtrackToProfile.ToListAsync();
+
+            foreach (var RatedSoundtrack in RatedSoundtracks) {
+                var found = Profiles.FirstOrDefault(x => x.ID.Equals(RatedSoundtrack.ID));
+
+                found.Soundtrack = RatedSoundtrack.Soundtrack;
+            }
         }
     }
 }

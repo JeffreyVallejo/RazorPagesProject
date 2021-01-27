@@ -1,17 +1,14 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace ScoreScorer.Models
 {
-    public class Profile
+    public class RatedSoundtrackToProfile
     {
-        public Profile()
+        public RatedSoundtrackToProfile()
         {
         }
 
         public int ID { get; set; }
-        public string Name { get; set; }
-        [NotMapped]
         public string Soundtrack { get; set; }
+        public int ProfileId { get; set; }
     }
 }

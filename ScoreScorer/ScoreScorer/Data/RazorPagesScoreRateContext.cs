@@ -20,5 +20,7 @@ namespace RazorPagesScoreRate.Data
 
         public DbSet<ScoreScorer.Models.Profile> Profile { get; set; }
 
+        public DbSet<ScoreScorer.Models.RatedSoundtrackToProfile> RatedSoundtrackToProfile { get; set; }
+
     }
 }
